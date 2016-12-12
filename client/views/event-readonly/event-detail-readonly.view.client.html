@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            {{model.event.name}}
+        </a>
+    </div>
+</nav>
+
+<div class="container-fluid">
+        <div class="form-group">
+            <label>Name</label>
+            <a>{{model.event.name}}</a>
+        </div>
+        <div class="form-group">
+            <label>Time</label>
+            <a>{{model.event.date}}</a>
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <a>{{model.event.location}}</a>
+        </div>
+        <div class="form-group">
+            <label>Capacity</label>
+            <a>{{model.event.capacity}}</a>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <a>{{model.event.description}}</a>
+        </div>
+        <div class="form-group">
+            <label>Attendees</label>
+            <li ng-repeat="attendee in model.attendees" class="list-group-item">
+                <a>{{attendee.username}}</a>
+            </li>
+        </div>
+</div>

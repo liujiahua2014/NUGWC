@@ -1,0 +1,69 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            Edit Event
+        </a>
+        <p class="navbar-text pull-right">
+            <button form="eventForm"
+                    type="submit"
+                    ng-click="model.updateEvent()" class="navbar-link">
+              <span class="glyphicon glyphicon-ok">
+              </span>
+            </button>
+        </p>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <form name="eventForm" id="eventForm" novalidate>
+        <div class="form-group">
+            <label for="event-name">Name</label>
+            <input ng-model="model.event.name" type="text"
+                   name="name"
+                   class="form-control"
+                   id="event-name"
+                   placeholder="Event Name" required/>
+        </div>
+        <div ng-show="eventForm.$submitted && eventForm.name.$invalid">
+            Event name is required
+        </div>
+        <div class="form-group">
+            <label for="event-date">Date</label>
+            <input ng-model="model.event.date"
+                   id="event-date"
+                   class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="event-location">Location</label>
+            <input ng-model="model.event.location" type="text"
+                      id="event-location"
+                      class="form-control"
+                      placeholder="Event Location"/>
+        </div>
+        <div class="form-group">
+            <label for="event-capacity">Capacity</label>
+            <input ng-model="model.event.capacity" type="text"
+                   id="event-capacity"
+                   class="form-control"
+                   placeholder="Event Capacity"/>
+        </div>
+        <div class="form-group">
+            <label for="event-description">Description</label>
+            <textarea ng-model="model.event.description" rows="4"
+                      id="event-description"
+                      class="form-control"
+                      placeholder="Event Description"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Attendees</label>
+            <li ng-repeat="attendee in model.attendees" class="list-group-item">
+                <a>{{attendee.username}}</a>
+            </li>
+        </div>
+        <a ng-click="model.deleteEvent()" class="btn btn-danger btn-block">Delete</a>
+    </form>
+</div>
+
+<script>
+    $("#event-date").datetimepicker();
+</script>
