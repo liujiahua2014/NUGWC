@@ -1,36 +1,40 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand">
-            {{model.event.name}}
-        </a>
-    </div>
-</nav>
+<div class="container">
+    <div class="eventTitle"><h4><a>{{model.event.name}}</a></h4></div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-3 sidebar">
+            <img width="100%" ng-src="{{model.event.imageUrl}}">
+            <div><button ng-click="model.attendEvent()" ng-show="!model.isAttending()" class="pull-left btn btn-attend btn-space"> Attend</button>
+                <button ng-click="model.unattendEvent()" ng-show="model.isAttending()" class="pull-left btn btn-unattend btn-space"> Unattend</button></div>
+        </div>
 
-<div class="container-fluid">
-        <div class="form-group">
-            <label>Name</label>
-            <a>{{model.event.name}}</a>
+        <div class="col-sm-6 sidebar">
+            <div class="col-sm-1 eventDate"> {{model.event.month}}<b> {{model.event.day}} </b> {{model.event.weekday}}</div>
+            <div class="col-sm-9 lecturer-intro">
+                <label>Attendees: </label><br/>
+                <ul class="three-columns" data-columns="4">
+                    <li ng-repeat="attendee in model.attendees" >
+                        <a>{{attendee.username}}</a>
+                    </li>
+                </ul>
+
+                <br/><br/>
+            </div>
+            <div class="details col-sm-12">
+                <hr>
+                <b>Description: </b><br/>
+                {{model.event.description}}
+            </div>
         </div>
-        <div class="form-group">
-            <label>Time</label>
-            <a>{{model.event.date}}</a>
+
+        <div class="col-sm-2 sidebar">
+            <div class="sideInfo">
+                <span ng-show="!model.user"> <a>Hello, guest.</a>  </span>
+                <span ng-show="model.user"> <a>Hello, {{model.user.username}}.</a>  </span>
+            </div>
+            <hr>
+            <div class="sideInfo"><b>Date:</b><br/> {{model.event.datestring}} <br /></div>
+            <div class="sideInfo"><b>Address:</b><br/> {{model.event.location}} <br /></div>
         </div>
-        <div class="form-group">
-            <label>Location</label>
-            <a>{{model.event.location}}</a>
-        </div>
-        <div class="form-group">
-            <label>Capacity</label>
-            <a>{{model.event.capacity}}</a>
-        </div>
-        <div class="form-group">
-            <label>Description</label>
-            <a>{{model.event.description}}</a>
-        </div>
-        <div class="form-group">
-            <label>Attendees</label>
-            <li ng-repeat="attendee in model.attendees" class="list-group-item">
-                <a>{{attendee.username}}</a>
-            </li>
-        </div>
+    </div>
 </div>

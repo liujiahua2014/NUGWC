@@ -22,13 +22,13 @@
                 templateUrl: "views/event/event-list.view.client.html",
                 controller: "EventListController",
                 controllerAs: "model",
-                resolve: {checkLogin: checkLogin}
+                resolve: {checkLogin: checkAdminLogin}
             })
             .when("/event/new", {
                 templateUrl: "views/event/event-new.view.client.html",
                 controller: "NewEventController",
                 controllerAs: "model",
-                resolve: {checkLogin: checkLogin}
+                resolve: {checkLogin: checkAdminLogin}
             })
             .when("/event/readonly", {
                 templateUrl: "views/event-readonly/event-list-readonly.view.client.html",
@@ -39,28 +39,20 @@
                 templateUrl: "views/event/event-edit.view.client.html",
                 controller: "EditEventController",
                 controllerAs: "model",
-                resolve: {checkLogin: checkLogin}
+                resolve: {checkLogin: checkAdminLogin}
             })
             .when("/event/readonly/:eventID", {
                 templateUrl: "views/event-readonly/event-detail-readonly.view.client.html",
                 controller: "EventDetailReadonlyController",
                 controllerAs: "model"
             })
-
-            // .when("/user/:uid", {
-            //     templateUrl: "views/user/profile.view.client.html",
-            //     controller: "ProfileController",
-            //     controllerAs: "model",
-            //     resolve: { loggedin: checkLogin }
-            // })
-
             .otherwise({
                 redirectTo: "/login"
             });
 
-        function checkLogin($q, $http, $location) {
+        function checkAdminLogin($q, $http, $location) {
             var deferred = $q.defer();
-            $http.post('/api/checkLogin')
+            $http.post('/api/checkAdminLogin')
                 .success(
                     function (user) {
                         if(user != '0') {

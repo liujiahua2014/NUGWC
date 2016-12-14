@@ -8,6 +8,7 @@ module.exports = function () {
     var api = {
         createEvent: createEvent,
         findEvents: findEvents,
+        findEventCnt: findEventCnt,
         findEventById: findEventById,
         updateEvent: updateEvent,
         deleteEvent: deleteEvent,
@@ -23,8 +24,17 @@ module.exports = function () {
         return EventModel.create(event);
     }
 
-    function findEvents() {
-        return EventModel.find();
+    function findEvents(page) {
+        if(!page)
+            return EventModel.find().sort({date: -1});
+
+        var numPerPage = 10;
+        var skipPageNum = (page - 1) * numPerPage;
+        return EventModel.find().sort({date: -1}).skip(skipPageNum).limit(numPerPage);
+    }
+
+    function findEventCnt() {
+        return EventModel.count();
     }
 
     function findEventById(eventId) {
@@ -32,20 +42,26 @@ module.exports = function () {
     }
 
     function updateEvent(eventId, event) {
-        return EventModel
-            .update(
-                {
-                    _id: eventId
-                },
-                {
-                    name: event.name,
-                    location: event.location,
-                    description: event.description,
-                    capacity: event.capacity,
-                    date: event.date,
-                    imageUrl: event.imageUrl
-                }
-            );
+        delete event._id
+        return EventModel.update(
+            {_id: eventId},
+            {$set: event}
+        );
+
+        // return EventModel
+        //     .update(
+        //         {
+        //             _id: eventId
+        //         },
+        //         {
+        //             name: event.name,
+        //             location: event.location,
+        //             description: event.description,
+        //             capacity: event.capacity,
+        //             date: event.date,
+        //             imageUrl: event.imageUrl
+        //         }
+        //     );
     }
 
     function deleteEvent(eventId) {
@@ -73,24 +89,6 @@ module.exports = function () {
             .findById(eventID)
             .populate("attendees")
             .exec();
-
-            // .then(
-            //     function(eventObj) {
-            //         var attendees = [];
-            //         for(var i=0; i<eventObj.attendees.length;) {
-            //             model
-            //                 .userModel
-            //                 .findUserById(eventObj.attendees[i])
-            //                 .then(
-            //                     function(userObj) {
-            //                         attendees.push(userObj.name);
-            //                         if(i++ === eventObj.attendees.length - 1)
-            //                             return attendees;
-            //                     }
-            //                 );
-            //         }
-            //     }
-            // );
     }
 
     function attendEvent(userID, eventID) {

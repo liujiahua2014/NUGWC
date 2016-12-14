@@ -7,6 +7,7 @@
         var api = {
             createEvent: createEvent,
             findEvents: findEvents,
+            findEventCnt: findEventCnt,
             findEventById: findEventById,
             updateEvent: updateEvent,
             deleteEvent: deleteEvent,
@@ -22,8 +23,17 @@
             return $http.post(url, event);
         }
 
-        function findEvents() {
-            var url = "/api/event";
+        function findEvents(pageIdx) {
+            var url;
+            if(!pageIdx)
+                url = "/api/event";
+            else
+                url = "/api/event?page=" + pageIdx;
+            return $http.get(url);
+        }
+
+        function findEventCnt() {
+            var url = "/api/event/cnt";
             return $http.get(url);
         }
 

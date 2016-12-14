@@ -2,7 +2,7 @@ module.exports = function () {
     var mongoose = require("mongoose");
 
     var EventSchema = mongoose.Schema({
-        name: {type: String, required:true},
+        name: {type: String, required: true},
         location: String,
         description: String,
         attendees: [{type: mongoose.Schema.Types.ObjectId, ref:'UserModel'}],

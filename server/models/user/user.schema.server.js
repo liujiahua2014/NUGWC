@@ -8,6 +8,10 @@ module.exports = function() {
         lastName: String,
         email: String,
         phone: String,
+        google:   {
+            id:    String,
+            token: String
+        },
         facebook: {
             id: String,
             token: String

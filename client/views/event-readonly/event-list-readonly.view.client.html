@@ -1,24 +1,37 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            Events
-        </a>
-    </div>
-</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-md-9 pageColor">
+            <b>Page: </b>
+            <a ng-hide="{{model.pageIdx}}===1" href="#/event/readonly?page={{model.pageIdx-1}}"><span class="glyphicon glyphicon-menu-left"></span></a>
 
-<div class="container-fluid">
+            <!--<a ng-repeat="n in model.getNumber(model.pageNum) track by $index">{{$index+1}} </a>-->
+            <a>{{model.pageIdx}} </a>
+
+            <a ng-hide="model.reachLastPage()" href="#/event/readonly?page={{model.pageIdx+1}}"><span class="glyphicon glyphicon-menu-right"></span></a>
+        </div>
+
+        <div class="col-xs-6 col-md-3 accountNum">
+                <span ng-show="!model.user"> <a>Hello, guest.</a>  </span>
+                <span ng-show="model.user"> <a>Hello, {{model.user.username}}.</a>  </span>
+        </div>
+
+    </div>
+
+    <hr>
+
     <ul class="list-group">
         <li ng-repeat="event in model.events" class="list-group-item">
-            <a href="#/event/readonly/{{event._id}}">{{event.name}}</a>
-            <button ng-click="model.attendEvent(event._id)" ng-show="!model.isAttending(event._id)" class="pull-right"> Attend</button>
-            <button ng-click="model.unattendEvent(event._id)" ng-show="model.isAttending(event._id)" class="pull-right"> Unattend</button>
+            <div class="eventTitle"><a href="#/event/readonly/{{event._id}}">{{event.name}}</a></div>
+            <div class="row">
+                <div class="col-sm-1 eventDate"> {{event.month}}<br/><b> {{event.day}} </b> </br>{{event.weekday}}</div>
+                <div class="col-sm-3"><img width="100%" ng-src="{{event.imageUrl}}"/></div>
+                <div class="col-sm-5">{{event.description}}</div>
+                <div class="col-sm-2">
+                    <div class="address"><b>Address:</b><br/> {{event.location}} <br /></div>
+                    <button ng-click="model.attendEvent(event._id)" ng-show="!model.isAttending(event._id)" class="pull-left btn btn-attend btn-space"> Attend</button>
+                    <button ng-click="model.unattendEvent(event._id)" ng-show="model.isAttending(event._id)" class="pull-left btn btn-unattend btn-space"> Unattend</button>
+                </div>
+            </div>
         </li>
     </ul>
 </div>
-
-<!--<div class="_1qdd" role="heading" aria-level="4"><a href="#">New England Patriots vs Baltimore Ravens</a></div>-->
-<!--<div class="_5j1s">-->
-    <!--<span class="_5p0a"><span>Monday at <span>8:30 PM</span></span></span>-->
-    <!--<div class="_5p0b fsm fwn fcg"><span class="_4u__"><a class="_5inl" href="https://www.facebook.com/GilletteStadium/" data-hovercard="/ajax/hovercard/page.php?id=118783641492272" data-hovercard-prefer-more-content-show="1">Gillette Stadium</a></span><span role="presentation" aria-hidden="true"> · </span></div>-->
-<!--</div>-->
-<!--<div class="clearfix"><div class="_47c- _1qdg lfloat _ohe"><div class="_6a uiPopover" id="u_0_10"><a class="_42ft _4jy0 _55pi _2agf _p _4jy3 _517h _51sy" role="button" href="#" style="max-width:200px;" aria-haspopup="true" aria-expanded="false" rel="toggle" id="u_0_12"><span class="_55pe" style="max-width:186px;"><i class="_3-8_ img sp_BnX-RLlPLf1 sx_e6c60f"></i>Going</span><i class="_3-99 img sp_7_rcco-mW9D sx_e1c21f"></i></a></div><div class="_6a uiPopover fbEventClassicButton" id="u_0_14"><a class="_42ft _4jy0 _55pi _5vto _55_p _2agf _p _4jy3 _517h _51sy" role="button" href="#" style="max-width:200px;" aria-haspopup="true" aria-expanded="false" rel="toggle" id="u_0_15"><span class="_55pe" style="max-width:186px;"><i class="img sp_L9i6qsKs29A sx_c6cbce"></i>Share</span><i class="_3-99 img sp_7_rcco-mW9D sx_80536d"></i></a></div></div></div>-->

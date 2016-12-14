@@ -24,9 +24,14 @@
         vm.createEvent = createEvent;
 
         function createEvent(event) {
-            var datetime = new Date(event.date);
-            datetime.setTime( datetime.getTime() - datetime.getTimezoneOffset()*60*1000 );
-            event.date = datetime.toString();
+            // var datetime = new Date(event.date);
+            // datetime.setTime( datetime.getTime() - datetime.getTimezoneOffset()*60*1000 );
+            // event.date = datetime.toString();
+
+            if(!event.name || !event.date || !event.location) {
+                vm.error = "Error!";
+                return;
+            }
 
             EventService
                 .createEvent(event)
@@ -72,9 +77,14 @@
         }
 
         function updateEvent() {
-            var datetime = new Date(vm.event.date);
-            datetime.setTime( datetime.getTime() - datetime.getTimezoneOffset()*60*1000 );
-            vm.event.date = datetime.toString();
+            // var datetime = new Date(vm.event.date);
+            // datetime.setTime( datetime.getTime() - datetime.getTimezoneOffset()*60*1000 );
+            // vm.event.date = datetime.toString();
+
+            if(!vm.event.name || !vm.event.date || !vm.event.location) {
+                vm.error = "Error!";
+                return;
+            }
 
             EventService
                 .updateEvent(vm.event)

@@ -55,3 +55,186 @@ body .v-divider{
 .form-control, .btn {
     margin-bottom: 5px;
 }
+
+.eventDate{
+    color:#8f9191;
+    margin: 0px 20px 0 30px;
+    padding: 5px 0 5px 0;
+    text-align:center;
+    border-bottom: 3px solid #1bc6bb;
+}
+.sideInfo{
+    margin-bottom: 10px;
+}
+.eventDate b{
+    font-size: 25px;
+}
+.eventTitle{
+    margin: 0px 0px 10px 20px;
+}
+.eventTitle a{
+    color:#1bc6bb;
+}
+.btn-space{
+    margin-right: 5px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.btn-attend{
+    color:white;
+    background-color: #1bc6bb;
+    float: left;
+}
+.btn-attend:hover{
+    color:white;
+    background-color: #06dbd4;
+}
+.btn-unattend{
+    color:white;
+    background-color: #f96b61;
+}
+.btn-unattend:hover{
+    color:white;
+    background-color: #ff857c;
+}
+.accountNum{
+    text-align:right;
+}
+hr{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+a{
+    color: #1bc6bb;
+    text-decoration: none;
+}
+.introduction{
+    margin-top: 20px;
+}
+#signin{
+    color:#1bc6bb;
+    font-size: 12px;
+}
+#register{
+    color:#1bc6bb;
+    font-size: 12px;
+}
+.pageColor{
+    color:#1bc6bb;
+    font-size: 12px;
+}
+
+.three-columns {
+    columns: 3;
+    -webkit-columns: 100px 3;
+    -moz-columns: 3;
+}
+
+
+
+
+/*input.form-control {*/
+    /*margin-bottom: 5px;*/
+/*}*/
+
+/*body {*/
+    /*padding-top: 60px;*/
+/*}*/
+
+/*p.navbar-text.pull-right {*/
+    /*margin-right: 15px;*/
+/*}*/
+
+/*p.navbar-text.pull-left {*/
+    /*margin-left: 15px;*/
+/*}*/
+
+/*.jga-widget-tool {*/
+    /*position: absolute;*/
+    /*right: 15px;*/
+    /*background-color: white;*/
+    /*padding-left: 5px;*/
+    /*padding-bottom: 5px;*/
+    /*border-bottom-left-radius: 8px;*/
+    /*opacity: 0.7;*/
+/*}*/
+
+/*a:hover {*/
+    /*text-decoration: none;*/
+/*}*/
+
+/*body .v-divider{*/
+    /*left: 33%;*/
+    /*position: absolute;*/
+    /*margin-left:5px;*/
+    /*margin-right:5px;*/
+    /*width:1px;*/
+    /*height:100%;*/
+    /*border-left:1px solid #dddddd;*/
+/*}*/
+
+/*.youtube-widget {*/
+    /*position: relative;*/
+    /*padding-bottom: 56.25%; !* 16:9 *!*/
+    /*height: 0;*/
+/*}*/
+
+/*.youtube-widget iframe {*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+
+/*.form-control, .btn {*/
+    /*margin-bottom: 5px;*/
+/*}*/
+
+/*.eventDate{*/
+    /*color:#8f9191;*/
+    /*margin: 0px 20px 0 30px;*/
+    /*padding: 5px 0 5px 0;*/
+    /*text-align:center;*/
+    /*border-bottom: 3px solid #1bc6bb;*/
+/*}*/
+/*.sideInfo{*/
+    /*margin-bottom: 10px;*/
+/*}*/
+/*.eventDate b{*/
+    /*font-size: 25px;*/
+/*}*/
+/*.eventTitle{*/
+    /*font-size: 20px;*/
+    /*margin: 0px 0px 10px 20px;*/
+/*}*/
+/*.eventTitle a{*/
+    /*color:#1bc6bb;*/
+/*}*/
+/*.btn-space{*/
+    /*margin-right: 5px;*/
+    /*margin-top: 10px;*/
+    /*font-size: 12px;*/
+/*}*/
+/*.btn-attend{*/
+    /*color:white;*/
+    /*background-color: #1bc6bb;*/
+    /*float: left;*/
+/*}*/
+/*.btn-attend:hover{*/
+    /*color:white;*/
+    /*background-color: #06dbd4;*/
+/*}*/
+/*.btn-unattend{*/
+    /*color:white;*/
+    /*background-color: #f96b61;*/
+/*}*/
+/*.btn-unattend:hover{*/
+    /*color:white;*/
+    /*background-color: #ff857c;*/
+/*}*/
+/*.introduction{*/
+    /*margin-top: 20px;*/
+/*}*/
